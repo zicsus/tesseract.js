@@ -7,13 +7,15 @@ const genConfig = ({
 }) => ({
   ...common,
   mode: 'production',
-  devtool: 'source-map',
   entry,
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
     filename,
     library,
     libraryTarget,
+  },
+  optimization: {
+    minimize: false,
   },
   plugins: [
     new webpack.ProvidePlugin({
